@@ -1,3 +1,6 @@
+/**
+ * @author Fuyuan Cheng <gloomcheng@gmail.com>
+ */
 import Link from "next/link";
 import { 
   Navbar, 
@@ -16,6 +19,25 @@ import {
 } from "flowbite-react";
 
 export default function Home() {
+
+  const items = [
+    {
+      cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/%E9%9B%B2%E6%9E%97%E5%8C%97%E6%B8%AF%E6%9C%9D%E5%A4%A9%E5%AE%AE-1.jpg/1280px-%E9%9B%B2%E6%9E%97%E5%8C%97%E6%B8%AF%E6%9C%9D%E5%A4%A9%E5%AE%AE-1.jpg",
+      name: "北港朝天宮",
+      description: "北港朝天宮（台文：Pak Káng Tiâu Thian Keng），俗稱北港媽（台文：Pak Káng Má），當地人稱媽祖宮、媽祖廟（台文：Má Chó͘ keng），舊稱為天后宮。是一座位在臺灣雲林縣北港鎮光民里的媽祖廟，主祀天上聖母媽祖。",
+    },
+    {
+      cover: "",
+      name: "",
+      description: "",
+    },
+    {
+      cover: "",
+      name: "",
+      description: "",
+    },
+  ];
+
   return (
     <>
     <div className="bg-cyan-800">
@@ -42,7 +64,7 @@ export default function Home() {
 
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
-          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
+          <img src="/banner/banner-1.jpg" alt="由 WU PEI HSUAN - 自己的作品, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=110297869" />
           <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
           <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
           <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
@@ -50,18 +72,19 @@ export default function Home() {
         </Carousel>
       </div>
 
-      <div className="bg-white">
-        <div className="container mx-auto">
+      <div className="bg-white py-16">
+        <div className="container mx-auto grid grid-cols-4 gap-4">
+          { items.map( item =>
           <Card
             className="max-w-sm"
-            imgAlt="Meaningful alt text for an image that is not purely decorative"
-            imgSrc="/images/blog/image-1.jpg"
+            imgAlt={item.name}
+            imgSrc={item.cover}
           >
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Noteworthy technology acquisitions 2021
+              {item.name}
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+              {item.description}
             </p>
             <Button>
               Read more
@@ -74,6 +97,7 @@ export default function Home() {
               </svg>
             </Button>
           </Card>
+          )}
         </div>
       </div>
       
