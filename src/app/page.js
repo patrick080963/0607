@@ -1,7 +1,9 @@
 /**
- * @author Fuyuan Cheng <gloomcheng@gmail.com>
+ * @author 張柏揚<patrick080963@gmail.com>
  */
+'use client';
 import Link from "next/link";
+import { useState,useEffect } from "react";
 import { 
   Navbar, 
   NavbarBrand, 
@@ -17,11 +19,28 @@ import {
   Button,
   DarkThemeToggle
 } from "flowbite-react";
-import CustomCard from '@/app/components/Card';
+import CustomCard from './components/Card';
 
 export default function Home() {
+ 
+  const[items,setItems]=useState([]);
 
-  const items = [
+  useEffect(() => {
+    const getToken= async() =>{
+      const clienid=process.env.TDX_CLIENT_ID;
+      const clientsecret=process.env.TDX_Client_Secret;
+      const tokenParams=new URLSearchParams();
+      tokenParams.append( 'grant_type','client_credentials')
+      tokenParams.append('client_id',clienid)
+      tokenParams.append('client_secret',clientsecret)
+      const tokenResponse=await fetch('https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token',{
+        method:'POST',
+        headers:{'content-type':'application/x-www-form-urlencoded'},
+        body: tokenParams.toString()
+      });
+    };
+  },[]);
+  /*const items = [
     {
       "ScenicSpotID": "C1_376490000A_000001",
       "ScenicSpotName": "雲林布袋戲館",
@@ -843,7 +862,7 @@ export default function Home() {
       "SrcUpdateTime": "2024-05-31T01:34:33+08:00",
       "UpdateTime": "2024-05-31T03:14:56+08:00"
     }
-  ];
+  ];*/
 
   return (
     <>
