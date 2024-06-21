@@ -6,7 +6,7 @@ export async function GET(){
     if(token)
     {
         const apiData=await fetchData(token);
-        return Response.json({apiData});
+        return Response.json(apiData);
     }else{
         return Response.json(
             {error:'Failed to retrieve access token'},
