@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="object-fit:fill h-56 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel>
           <AutoSizeImage
             src="/banner/banner-1.jpg"
@@ -86,7 +86,7 @@ export default function Home() {
           />
           <AutoSizeImage
             src="/banner/banner-4.jpg"
-            alt="..."
+            alt="Fcuk1203, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons"
           />
           <AutoSizeImage
             src="/banner/banner-5.jpg"

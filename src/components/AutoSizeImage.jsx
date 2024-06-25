@@ -12,7 +12,17 @@ const AutoSizeImage = ({ src, alt }) => {
     };
   }, [src]);
 
-  return <Image src={src} alt={alt} width={size.width} height={size.height} />;
+  return (
+    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+      <Image
+        src={src}
+        alt={alt}
+        layout="fill"
+        objectFit="contain"
+        style={{ width: '100%', height: '100%' }}
+      />
+    </div>
+  );
 };
 
 export default AutoSizeImage;
